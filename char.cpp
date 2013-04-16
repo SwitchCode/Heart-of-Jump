@@ -110,12 +110,11 @@ void Char::update(sf::Time elapsedTime)
     _animationElapsedTime += elapsedTime;
     if(_animationElapsedTime > sf::milliseconds(33))
     {
+            _currentFrame++;
         if(!_isJumping and _currentFrame >= CHAR_FRAME_NUMBER)
             _currentFrame = 0;
         else if(_isJumping and _currentFrame >= JUMPING_FRAME_NUMBER)
             _currentFrame = JUMPING_FRAME_NUMBER - 1;
-        else
-            _currentFrame++;
 
         if(!_isJumping and (_currentFrame == 0 or _currentFrame == 7))
         {
